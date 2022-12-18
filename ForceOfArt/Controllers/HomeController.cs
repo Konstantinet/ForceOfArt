@@ -20,6 +20,10 @@ namespace ForceOfArt.Controllers
 
         public IActionResult Index()
         {
+            var factory = new JsonExtractorFactory("C:\\Users\\uzver\\ArtBase\\collection\\objects");
+            var processor =  factory.GetProcessor();
+            processor.Process();
+            var objects = processor.GetData();
             return View();
         }
 
