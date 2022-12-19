@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ForceOfArt.Models;
+using DB;
 
 namespace ForceOfArt.Controllers
 {
@@ -20,10 +21,13 @@ namespace ForceOfArt.Controllers
 
         public IActionResult Index()
         {
-            var factory = new JsonExtractorFactory("C:\\Users\\uzver\\ArtBase\\collection\\objects");
+            var factory = new JsonExtractorFactory("C:\\Users\\uzver\\SmallArtBase\\collection\\objects");
             var processor =  factory.GetProcessor();
             processor.Process();
             var objects = processor.GetData();
+            var con = new DbConnection();
+            //con.CreateDB();
+            con.FillData(objects);
             return View();
         }
 

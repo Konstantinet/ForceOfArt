@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ForceOfArt.Models
+namespace DB
 {
     public class JsonProcessor:DataProcessor
     {

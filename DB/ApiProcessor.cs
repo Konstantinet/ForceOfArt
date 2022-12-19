@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ForceOfArt.Models
+namespace DB
 {
     public class ApiProcessor : DataProcessor
     {
