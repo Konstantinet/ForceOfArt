@@ -46,5 +46,25 @@ namespace DB
             }
 
         }
+        public  List<object[]> Find(string keyword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string expr = $"Select * from objects WHERE tytle LIKE '%{keyword}%'";
+                SqlCommand command = new SqlCommand(expr, connection);
+                var res = new List<object[]>();
+                var reader = command.ExecuteReader();
+                    
+                    while (reader.Read())
+                    {
+                    var values = new object[reader.FieldCount];
+                    reader.GetValues(values);
+                    res.Add(values);
+                    }
+                    return res;
+                
+            }
+        }
     }
 }

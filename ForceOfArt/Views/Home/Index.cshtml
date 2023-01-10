@@ -1,8 +1,48 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using DB;
+@{ Layout = null; }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<style>
+    .res {
+        width :500px; 
+        height:100px; 
+        background-color:white;
+        margin-left:auto;
+        margin-right:auto;
+    }
+</style>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/site.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>ForceOfArt</title>
+</head>
+<body>
+    <div class="d1">
+        <form>
+        <input type="text" name="Key" id="Key" placeholder="Искать здесь...">
+        <button type="submit" href="https://www.metmuseum.org/"></button>
+        </form>
+    </div>
+
+           @{ for (int i = 0; i < 5; i++)
+                {
+
+                    var con = new DbConnection();
+                    var res = con.Find(KEY);
+    
+                    <div class="res">
+                        <p>
+                        Tytle:
+                        @res[i][18].ToString();
+                            <br>
+                        Author:
+                        @res[i][0].ToString();
+                            </p>
+                    </div> 
+                } 
+               }
+
+
+        </body>
+</html>

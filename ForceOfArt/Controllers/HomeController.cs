@@ -21,16 +21,16 @@ namespace ForceOfArt.Controllers
 
         public IActionResult Index()
         {
-            var factory = new JsonExtractorFactory("C:\\Users\\uzver\\SmallArtBase\\collection\\objects");
-            var processor =  factory.GetProcessor();
-            processor.Process();
-            var objects = processor.GetData();
-            var con = new DbConnection();
+            //var factory = new JsonExtractorFactory("C:\\Users\\uzver\\SmallArtBase\\collection\\objects");
+            //var processor =  factory.GetProcessor();
+            //processor.Process();
+            //var objects = processor.GetData();
+            //var con = new DbConnection();
             //con.CreateDB();
-            con.FillData(objects);
+            //con.FillData(objects);
             return View();
         }
-
+        
         public IActionResult Privacy()
         {
             return View();
